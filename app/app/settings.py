@@ -108,8 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# GRAPHENE = {'SCHEMA': 'api.schema.schema',
-# }
+GRAPHENE = {'SCHEMA': 'app.schema.schema',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

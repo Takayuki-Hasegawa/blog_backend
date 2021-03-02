@@ -7,7 +7,7 @@ from graphene import relay
 from graphql_relay import from_global_id
 
 
-class PostNode(DjangoObjectType):
+class PostType(DjangoObjectType):
     class Meta:
         model = Post
         filter_fields = {
@@ -18,7 +18,7 @@ class PostNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 
-class CommentNode(DjangoObjectType):
+class CommentType(DjangoObjectType):
     class Meta:
         model = Comment
         filter_fields = {
@@ -29,20 +29,18 @@ class CommentNode(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    post = graphene.Field(PostNode, id=graphene.NonNull(graphene.ID))
-    comment = graphene.Field(CommentNode, id=graphene.NonNull(graphene.ID))
-    posts = DjangoFilterConnectionField(PostNode)
-    commets = DjangoFilterConnectionField(CommentNode)
+    post = graphene.Field(PostType, id=graphene.Int())
+    comment = graphene.Field(CommentType, id=graphene.Int())
+    posts = DjangoFilterConnectionField(PostType)
+    commets = DjangoFilterConnectionField(CommentType)
 
     def resolve_post(self, info, **kwargs):
         id = kwargs.get('id')
-        if id is not None:
-            return Post.objects.get(id=from_global_id(id)[1])
+        return Post.objects.get(pk=id)
 
-    def resolve_post(self, info, **kwargs):
+    def resolve_comment(self, info, **kwargs):
         id = kwargs.get('id')
-        if id is not None:
-            return Comment.objects.get(id=from_global_id(id)[1])
+        return Comment.objects.get(pk=id)
 
     def resolve_posts(self, info, **kwargs):
         return Post.objects.all()

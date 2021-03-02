@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "/Users/takayukihasegawa/opt/anaconda3/envs/blog/bin/python"
+    "python.pythonPath": "/Users/takayukihasegawa/opt/anaconda3/envs/graphql_Django/bin/python",
+    "python.analysis.extraPaths": [
+        "DoNotTouchThisFolder"
+    ],
+    "python.jediEnabled": false,
 }

@@ -1,8 +1,8 @@
 import graphene
-from app.contents import schema
+import contents.schema
 
 
-class Query(schema.PostNode.schema.Query, schema.CommentNode.schema.Query, graphene.ObjectType):
+class Query(contents.schema.Query, graphene.ObjectType):
     pass
 
 

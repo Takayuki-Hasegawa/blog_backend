@@ -4,4 +4,5 @@
         "DoNotTouchThisFolder"
     ],
     "python.jediEnabled": false,
+    "python.languageServer": "Microsoft",
 }

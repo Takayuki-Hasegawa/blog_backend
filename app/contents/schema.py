@@ -32,7 +32,7 @@ class Query(graphene.ObjectType):
     post = graphene.Field(PostType, id=graphene.Int())
     comment = graphene.Field(CommentType, id=graphene.Int())
     posts = DjangoFilterConnectionField(PostType)
-    commets = DjangoFilterConnectionField(CommentType)
+    comments = DjangoFilterConnectionField(CommentType)
 
     def resolve_post(self, info, **kwargs):
         id = kwargs.get('id')

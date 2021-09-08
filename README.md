@@ -7,6 +7,4 @@
 |Frontend Flamework|React|
 |Backend Flamework|Django|
 |Query Language   |GraphQL|
-|SQL              |SQLight|
-|UI compornent|Material UI|
-
+|DB              |SQLight|
